@@ -1,23 +1,24 @@
+import { useContext } from "react";
+import TableContext from "./store/TableContext";
 import logo from './logo.svg';
-import './App.css';
+import classes from './App.module.css';
+import Table from './components/Table';
 
 function App() {
+  const ctx = useContext(TableContext);
+
+  const deleteHandler = id => {
+    ctx.deleteRow(id);
+  }
+
+  const sortHandler = (id, direction) => {
+    ctx.sortRow(id, direction);
+  }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.home}>
+      <header className={classes.title}>React Table</header>      
+      <Table headers={ctx.headers} data={ctx.data} onDelete={deleteHandler} onSort={sortHandler}/>
     </div>
   );
 }

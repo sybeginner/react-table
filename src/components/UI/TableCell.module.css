@@ -1,0 +1,55 @@
+.table-cell {
+    display: flex;
+    flex: 1;
+    border: 1px solid black;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table-cell > button {
+    background: none;
+    background-color: lightblue;
+    border: none;
+    box-shadow: blue 0px 1px 5px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.table-cell > button:hover {
+    background-color: lightcyan;
+} 
+.table-cell > button:active {
+    background-color: lightskyblue;
+}
+
+.table-cell__sort-up {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s ease;
+    transform: translateY(30%);
+}
+.table-cell__sort-down {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s ease;
+    transform: translateY(-5%);
+}
+
+.table-cell--sort > .table-cell__sort-down,
+.table-cell--sort > .table-cell__sort-up,
+.table-cell:hover > .table-cell__sort-down,
+.table-cell:hover > .table-cell__sort-up {
+    visibility: visible;
+    opacity: 1;
+    cursor: pointer;
+    transition: opacity .2s ease;
+}
+
+.table-cell__delete {
+    cursor: pointer;
+}
+
+.table-cell__image {
+    height: 100px;
+}
